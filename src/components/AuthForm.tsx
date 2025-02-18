@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import type React from "react";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Github } from "lucide-react";
+import { Github, Loader, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { login, resendLogin } from "@/actions/auth.actions";
 
@@ -73,7 +73,7 @@ export default function AuthForm({
                 Or continue with
               </span>
             </div>
-            <form className="grid gap-6" onSubmit={handleSubmit}>
+            <form className="grid gap-4" onSubmit={handleSubmit}>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -84,9 +84,19 @@ export default function AuthForm({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                {error && (
+                  <div className="text-xs font-medium text-red-600">
+                    {error}
+                  </div>
+                )}
               </div>
               <Button type="submit" className="w-full" disabled={loading}>
-                Login
+                Send Magic Link{" "}
+                {loading ? (
+                  <Loader className="ml-2 size-4 animate-spin" />
+                ) : (
+                  <Sparkles size={16} className="ml-2" />
+                )}
               </Button>
             </form>
           </div>
