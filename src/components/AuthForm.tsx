@@ -1,3 +1,5 @@
+"use client"
+
 import type React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,13 +14,25 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Github } from "lucide-react";
 import { useState } from "react";
-import { login } from "@/actions/auth.actions";
+import { login, resendLogin } from "@/actions/auth.actions";
 
 export default function AuthForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    try {
+      await resendLogin(email);
+    } catch (error) {
+      setError("An error occurred. Please try again later.");
+    }
+    setLoading(false);
+  };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -59,7 +73,7 @@ export default function AuthForm({
                 Or continue with
               </span>
             </div>
-            <div className="grid gap-6">
+            <form className="grid gap-6" onSubmit={handleSubmit}>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -67,12 +81,14 @@ export default function AuthForm({
                   type="email"
                   placeholder="m@example.com"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" disabled={loading}>
                 Login
               </Button>
-            </div>
+            </form>
           </div>
         </CardContent>
       </Card>
