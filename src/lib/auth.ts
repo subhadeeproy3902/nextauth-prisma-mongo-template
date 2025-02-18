@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import { db } from "./db";
 import GitHubProvider from "next-auth/providers/github";
+import Resend from "next-auth/providers/resend";
 
 export const {
   handlers: { GET, POST },
@@ -24,6 +25,10 @@ export const {
         },
       },
       allowDangerousEmailAccountLinking: true,
+    }),
+    Resend({
+      apiKey: process.env.AUTH_RESEND_KEY!,
+      from: "Acme Inc. <acme@mvp-subha.me>",
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
