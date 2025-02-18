@@ -12,3 +12,17 @@ export const logout = async () => {
   await signOut({ redirectTo: "/" });
   revalidatePath("/");
 };
+
+export const resendLogin = async (email: string) => {
+  if (!email) {
+    throw new Error("Email is required");
+  }
+  if (!/^\S+@\S+\.\S+$/.test(email)) {
+    throw new Error("Invalid email format");
+  }
+  await signIn("resend", {
+    email,
+    redirectTo: "/dashboard",
+  });
+  revalidatePath("/dashboard");
+};
