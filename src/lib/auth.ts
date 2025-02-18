@@ -197,9 +197,9 @@ export const {
     }),
     Resend({
       apiKey: process.env.AUTH_RESEND_KEY!, 
-      from: 'Acme <onboarding@resend.dev>',  // If you are using Resend and do not have a domain
-      // from: "Acme Inc. <acme@mvp-subha.me>", // For personal domains
-      // sendVerificationRequest,
+      // from: 'Acme <onboarding@resend.dev>',  // If you are using Resend and do not have a domain
+      from: "Acme Inc. <acme@mvp-subha.me>", // For personal domains
+      sendVerificationRequest,
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
@@ -218,5 +218,8 @@ export const {
       session.user.id = token.id as string;
       return session;
     },
+  },
+  pages: {
+    verifyRequest: "/verify",
   },
 });
