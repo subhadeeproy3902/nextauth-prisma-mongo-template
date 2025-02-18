@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Github, Loader, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { login, resendLogin } from "@/actions/auth.actions";
+import Link from "next/link";
 
 export default function AuthForm({
   className,
@@ -30,6 +31,7 @@ export default function AuthForm({
       await resendLogin(email);
     } catch (error) {
       setError("An error occurred. Please try again later.");
+      console.error(error);
     }
     setLoading(false);
   };
@@ -103,8 +105,8 @@ export default function AuthForm({
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        By clicking continue, you agree to our <Link href="#">Terms of Service</Link>{" "}
+        and <Link href="#">Privacy Policy</Link>.
       </div>
     </div>
   );

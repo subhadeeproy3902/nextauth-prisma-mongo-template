@@ -5,6 +5,7 @@ import { db } from "./db";
 import GitHubProvider from "next-auth/providers/github";
 import Resend from "next-auth/providers/resend";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function sendVerificationRequest(params: any) {
   const { identifier: to, provider, url } = params;
   const { host } = new URL(url);
@@ -18,7 +19,7 @@ async function sendVerificationRequest(params: any) {
       from: provider.from,
       to,
       subject: `Sign in to ${host}`,
-      html: html({ url, host }),
+      html: html({ url }),
       text: text({ url, host }),
     }),
   });
@@ -27,8 +28,8 @@ async function sendVerificationRequest(params: any) {
     throw new Error("Resend error: " + JSON.stringify(await res.json()));
 }
 
-function html(params: { url: string; host: string }) {
-  const { url, host } = params;
+function html(params: { url: string}) {
+  const { url } = params;
 
   return `<!DOCTYPE html>
 <html lang="en">
