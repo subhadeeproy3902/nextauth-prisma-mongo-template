@@ -50,9 +50,11 @@ export function NavUser({ user }: { user: User }) {
                 <Avatar>
                   <AvatarFallback>
                     {user.name
-                      ?.split(" ")
-                      .map((word) => word[0])
-                      .join("")}
+                      ? user.name
+                          ?.split(" ")
+                          .map((word) => word[0])
+                          .join("")
+                      : user.email?.charAt(0)}
                   </AvatarFallback>
                 </Avatar>
               )}
@@ -81,9 +83,11 @@ export function NavUser({ user }: { user: User }) {
                   <Avatar>
                     <AvatarFallback>
                       {user.name
-                        ?.split(" ")
-                        .map((word) => word[0])
-                        .join("")}
+                        ? user.name
+                            ?.split(" ")
+                            .map((word) => word[0])
+                            .join("")
+                        : user.email?.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                 )}
