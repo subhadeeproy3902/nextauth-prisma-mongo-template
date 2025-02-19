@@ -1,4 +1,3 @@
-import { getUser } from "@/actions/user.actions";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import {
   Breadcrumb,
@@ -14,8 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
+import { getAuthenticatedUser } from "@/utils/authenticatedUser";
 
 export default async function RootLayout({
   children,
@@ -23,17 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await auth();
-
-  if (!session) {
-    redirect(`/register`);
-  }
-
-  const dbUser = await getUser(session!.user!.id!);
-
-  if (!dbUser) {
-    redirect(`/register`);
-  }
+  const dbUser = await getAuthenticatedUser();
 
   return (
     <SidebarProvider>
