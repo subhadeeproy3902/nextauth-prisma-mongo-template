@@ -200,7 +200,7 @@ export const {
       apiKey: process.env.AUTH_RESEND_KEY!, 
       // from: 'Acme <onboarding@resend.dev>',  // If you are using Resend and do not have a domain
       from: "Acme Inc. <acme@mvp-subha.me>", // For personal domains
-      sendVerificationRequest,
+      sendVerificationRequest, // For customised emails
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
@@ -221,6 +221,6 @@ export const {
     },
   },
   pages: {
-    verifyRequest: "/verify",
+    verifyRequest: "/verify-request",
   },
 });

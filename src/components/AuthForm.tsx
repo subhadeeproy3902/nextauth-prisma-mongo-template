@@ -75,7 +75,7 @@ export default function AuthForm({
                 Or continue with
               </span>
             </div>
-            <form className="grid gap-4" onSubmit={handleSubmit}>
+            <div className="grid gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -92,7 +92,12 @@ export default function AuthForm({
                   </div>
                 )}
               </div>
-              <Button type="submit" className="w-full" disabled={loading}>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={loading}
+                onClick={handleSubmit}
+              >
                 Send Magic Link{" "}
                 {loading ? (
                   <Loader className="ml-2 size-4 animate-spin" />
@@ -100,13 +105,14 @@ export default function AuthForm({
                   <Sparkles size={16} className="ml-2" />
                 )}
               </Button>
-            </form>
+            </div>
           </div>
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
-        By clicking continue, you agree to our <Link href="#">Terms of Service</Link>{" "}
-        and <Link href="#">Privacy Policy</Link>.
+        By clicking continue, you agree to our{" "}
+        <Link href="#">Terms of Service</Link> and{" "}
+        <Link href="#">Privacy Policy</Link>.
       </div>
     </div>
   );
