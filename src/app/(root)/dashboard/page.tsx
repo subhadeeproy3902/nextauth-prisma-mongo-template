@@ -9,9 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getAuthenticatedUser } from "@/utils/authenticatedUser";
+import { Loader } from "lucide-react";
 
 export default async function Dashboard() {
   const dbUser = await getAuthenticatedUser();
+
+  if (!dbUser) {
+    return <Loader className="w-8 h-8 animate-spin" />;
+  }
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
