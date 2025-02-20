@@ -13,7 +13,7 @@ A simple authentication template using **NextAuth.js**, **Prisma**, and **MongoD
   - [📌 GitHub OAuth Setup](#-github-oauth-setup)
   - [📌 Magic Link Auth Setup](#-magic-link-auth-setup)
 - [🚀 Running the Project](#-running-the-project)
-- [🛠️ Built With](#-built-with)
+- [🛠️ Built With](#%EF%B8%8F-built-with)
 - [📜 License](#-license)
 - [⭐ Show Some Love!](#-show-some-love)
 
