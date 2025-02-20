@@ -5,7 +5,7 @@ import { db } from "./db";
 import GitHubProvider from "next-auth/providers/github";
 import Resend from "next-auth/providers/resend";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 async function sendVerificationRequest(params: any) {
   const { identifier: to, provider, url } = params;
   const { host } = new URL(url);
@@ -198,9 +198,9 @@ export const {
     }),
     Resend({
       apiKey: process.env.AUTH_RESEND_KEY!, 
-      // from: 'Acme <onboarding@resend.dev>',  // If you are using Resend and do not have a domain
-      from: "Acme Inc. <acme@mvp-subha.me>", // For personal domains
-      sendVerificationRequest, // For customised emails
+      from: 'Acme <onboarding@resend.dev>',  // If you are using Resend and do not have a domain
+      // from: "Acme Inc. <acme@mvp-subha.me>", // For personal domains
+      // sendVerificationRequest, // For customised emails
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
