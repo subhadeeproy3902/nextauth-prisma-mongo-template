@@ -37,7 +37,7 @@ A simple authentication template using **NextAuth.js**, **Prisma**, and **MongoD
 ```bash
 git clone https://github.com/subhadeeproy3902/nextauth-prisma-mongo-template.git
 cd nextauth-prisma-mongo-template
- ```plaintext
+```
 
 ### 2️⃣ Install Dependencies
 
