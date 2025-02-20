@@ -26,6 +26,7 @@ A simple authentication template using **NextAuth.js**, **Prisma**, and **MongoD
 - ✅ Prisma ORM with MongoDB  
 - ✅ Secure session handling with JWT  
 - ✅ Fully customizable authentication logic  
+- ✅ Additionally has dark mode toggle
 
 ---
 
