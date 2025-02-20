@@ -14,14 +14,17 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { getAuthenticatedUser } from "@/utils/authenticatedUser";
+import { redirect } from "next/navigation";
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const dbUser = await getAuthenticatedUser();
+  if (!dbUser) {
+    redirect("/register");
+  }
 
   return (
     <SidebarProvider>
@@ -34,9 +37,7 @@ export default async function RootLayout({
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Dashboard
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
