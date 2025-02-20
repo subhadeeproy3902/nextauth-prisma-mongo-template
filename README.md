@@ -11,10 +11,9 @@ A simple authentication template using **NextAuth.js**, **Prisma**, and **MongoD
 - [🔑 Getting API Credentials](#-getting-api-credentials)
   - [📌 Google OAuth Setup](#-google-oauth-setup)
   - [📌 GitHub OAuth Setup](#-github-oauth-setup)
-  - [📌 GitHub OAuth Setup](#-github-oauth-setup)
+  - [📌 Magic Link Auth Setup](#-magic-link-auth-setup)
 - [🚀 Running the Project](#-running-the-project)
 - [🛠️ Built With](#-built-with)
-- [🛠️ Future Improvements](#-future-improvements)
 - [📜 License](#-license)
 - [⭐ Show Some Love!](#-show-some-love)
 
@@ -112,7 +111,7 @@ GITHUB_CLIENT_SECRET=your-github-client-secret
 
 ![alt text](<github.png>)
 
-### 📌Magic Link Auth Setup
+### 📌 Magic Link Auth Setup
 
 1. Go to [Resend API key](https://resend.com/api-keys)
 2. Create your api key
