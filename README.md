@@ -144,7 +144,7 @@ yarn dev
 
 The app will be live at `http://localhost:3000`.
 
-## 🛠️ Built With  
+## 🛠️ Built With
 
 - **Next.js** – React framework for server-side rendering  
 - **TypeScript** - Strongly typed programming language that builds on JavaScript
